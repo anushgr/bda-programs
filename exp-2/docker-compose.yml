@@ -1,6 +1,7 @@
 services:
+
   namenode:
-    build: .
+    image: apache/hadoop:withjava
     hostname: namenode
     command: ["hdfs", "namenode"]
     ports:
@@ -10,7 +11,6 @@ services:
       ENSURE_NAMENODE_DIR: "/tmp/hadoop-root/dfs/name"
 
   datanode:
-    build: .
-    hostname: datanode
+    image: apache/hadoop:withjava
     command: ["hdfs", "datanode"]
     env_file: ./config
