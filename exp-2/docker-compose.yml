@@ -1,0 +1,16 @@
+services:
+  namenode:
+    build: .
+    hostname: namenode
+    command: ["hdfs", "namenode"]
+    ports:
+      - "9870:9870"
+    env_file: ./config
+    environment:
+      ENSURE_NAMENODE_DIR: "/tmp/hadoop-root/dfs/name"
+
+  datanode:
+    build: .
+    hostname: datanode
+    command: ["hdfs", "datanode"]
+    env_file: ./config
